@@ -24,13 +24,17 @@ let selectedPerformance = '';
 document.querySelectorAll('.js-show-details').forEach((button) => {
   button.addEventListener('click', () => {
     selectedPerformance = button.dataset.title;
-    modalTitle.textContent = button.dataset.title;
-    modalDate.textContent = button.dataset.date;
-    modalDescription.textContent = button.dataset.text;
+    if (modalTitle) modalTitle.textContent = button.dataset.title;
+    if (modalDate) modalDate.textContent = button.dataset.date;
+    if (modalDescription) modalDescription.textContent = button.dataset.text;
+    if (modalBookButton) {
+      modalBookButton.href = `booking.html?performance=${encodeURIComponent(selectedPerformance)}`;
+    }
   });
 });
 
 function choosePerformance(title) {
+  if (!performanceSelect || !title) return;
   const option = [...performanceSelect.options].find((item) => item.text === title);
   if (option) {
     performanceSelect.value = option.value;
@@ -42,27 +46,29 @@ document.querySelectorAll('.js-book-show').forEach((link) => {
   link.addEventListener('click', () => choosePerformance(link.dataset.performance));
 });
 
-modalBookButton.addEventListener('click', () => {
-  choosePerformance(selectedPerformance);
-  window.setTimeout(() => document.querySelector('#guestName').focus(), 450);
-});
+const requestedPerformance = new URLSearchParams(window.location.search).get('performance');
+choosePerformance(requestedPerformance);
 
 const bookingForm = document.querySelector('#bookingForm');
 const bookingSuccess = document.querySelector('#bookingSuccess');
 
-bookingForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+if (bookingForm) {
+  bookingForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  if (!bookingForm.checkValidity()) {
-    event.stopPropagation();
+    if (!bookingForm.checkValidity()) {
+      event.stopPropagation();
+      bookingForm.classList.add('was-validated');
+      return;
+    }
+
     bookingForm.classList.add('was-validated');
-    return;
-  }
-
-  bookingForm.classList.add('was-validated');
-  bookingSuccess.classList.remove('d-none');
-  bookingSuccess.focus({ preventScroll: true });
-});
+    if (bookingSuccess) {
+      bookingSuccess.classList.remove('d-none');
+      bookingSuccess.focus({ preventScroll: true });
+    }
+  });
+}
 
 document.querySelectorAll('#mainNavbar .nav-link').forEach((link) => {
   link.addEventListener('click', () => {
