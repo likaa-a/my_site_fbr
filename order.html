@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Форма заявки на бронирование билетов в театр Третий звонок.">
+  <title>Заявка: театр «Третий звонок»</title>
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="inner-page">
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header"><nav class="navbar navbar-expand-lg" aria-label="Основная навигация"><div class="container-fluid page-gutter"><a class="navbar-brand" href="index.html">Третий звонок</a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNavbar"><ul class="navbar-nav ms-auto align-items-lg-center"><li class="nav-item"><a class="nav-link" href="catalog.html">Афиша</a></li><li class="nav-item"><a class="nav-link" href="about.html">О театре</a></li><li class="nav-item"><a class="nav-link" href="reviews.html">Отзывы</a></li><li class="nav-item"><a class="nav-link" href="faq.html">Вопросы</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ещё</a><ul class="dropdown-menu"><li><a class="dropdown-item" href="product.html">Спектакль</a></li><li><a class="dropdown-item" href="catalog.html">Все постановки</a></li><li><a class="dropdown-item" href="index.html#popular">Популярное</a></li></ul></li><li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html" aria-current="page">Билеты</a></li></ul></div></div></nav></header>
+
+  <main id="main-content" class="content-section content-section--light">
+    <div class="container-fluid page-gutter">
+      <div class="row g-5 align-items-start">
+        <div class="col-12 col-lg-5 order-intro">
+          <h1 class="order-intro__title" data-rise style="--i:0">Билеты</h1>
+          <p class="order-intro__lead" data-rise style="--i:1">Выберите спектакль и оставьте контакты. Администратор поможет подобрать места и подтвердит бронирование.</p>
+          <figure class="order-intro__main" data-reveal><img src="images/theatre-stage.png" width="1536" height="1024" alt="Сцена театра перед началом спектакля"></figure>
+          <div class="order-intro__strip" aria-label="Постановки театра">
+            <img src="images/cherry-orchard.png" width="1024" height="1280" alt="Вишнёвый сад" data-reveal>
+            <img src="images/last-guest.png" width="1024" height="1280" alt="Последний гость" data-reveal>
+            <img src="images/neighbours.png" width="1024" height="1280" alt="Соседи" data-reveal>
+          </div>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="card order-card" data-reveal>
+            <div class="card-header"><h2 class="h2 mb-0">Форма заявки</h2></div>
+            <div class="card-body">
+              <div class="alert alert-info" role="alert" data-reveal>Заполните форму. Поля со звёздочкой являются обязательными. В учебной версии данные не отправляются.</div>
+              <form id="orderForm" class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6" data-reveal><label for="order-name" class="form-label">Имя *</label><input id="order-name" name="name" type="text" class="form-control" required><div class="invalid-feedback">Введите имя.</div></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-email" class="form-label">E-mail *</label><input id="order-email" name="email" type="email" class="form-control" required><div class="invalid-feedback">Введите корректный e-mail.</div></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-phone" class="form-label">Телефон</label><div class="input-group"><span class="input-group-text">+7</span><input id="order-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00"></div></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-product" class="form-label">Спектакль *</label><select id="order-product" name="performance" class="form-select" required><option value="" selected disabled>Выберите спектакль</option><option value="Вишнёвый сад">Вишнёвый сад</option><option value="Последний гость">Последний гость</option><option value="Соседи">Соседи</option></select><div class="invalid-feedback">Выберите спектакль.</div></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-tickets" class="form-label">Количество билетов</label><select id="order-tickets" name="tickets" class="form-select"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-date" class="form-label">Дата посещения</label><input id="order-date" name="date" type="date" class="form-control"></div>
+                  <div class="col-12" data-reveal><label for="order-comment" class="form-label">Комментарий</label><textarea id="order-comment" name="comment" class="form-control" rows="4" placeholder="Пожелания по ряду и местам"></textarea></div>
+                  <div class="col-12" data-reveal><div class="form-check"><input id="order-agree" class="form-check-input" type="checkbox" required><label class="form-check-label" for="order-agree">Я согласен на обработку данных *</label><div class="invalid-feedback">Необходимо согласие.</div></div></div>
+                  <div class="col-12 d-flex flex-wrap gap-2" data-reveal><button class="btn btn-theatre" type="submit">Отправить заявку</button><button class="btn btn-secondary" type="reset">Очистить</button></div>
+                  <div class="col-12"><div class="alert alert-success d-none mb-0" id="orderSuccess" role="status" tabindex="-1">Форма заполнена корректно. Отправка на сервер в учебной версии отключена.</div></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row g-4 site-footer__top"><div class="col-6 col-lg-3"><strong>Адрес</strong><span>Москва, Театральный переулок, 3</span></div><div class="col-6 col-lg-3"><strong>Касса</strong><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-6 col-lg-3"><strong>Разделы</strong><a href="catalog.html">Афиша</a><a href="reviews.html">Отзывы</a><a href="faq.html">Вопросы</a></div><div class="col-6 col-lg-3"><strong>Почта</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a></div></div><p class="site-footer__wordmark" aria-hidden="true">Третий звонок</p><div class="site-footer__legal"><span>Учебный проект</span><span>2026</span></div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Афиша театра Третий звонок: спектакли, даты, карточки постановок и быстрое бронирование.">
+  <title>Афиша: театр «Третий звонок»</title>
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="inner-page">
+  <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+      <div class="container-fluid page-gutter">
+        <a class="navbar-brand" href="index.html">Третий звонок</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalog.html">Афиша</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">О театре</a></li>
+            <li class="nav-item"><a class="nav-link" href="reviews.html">Отзывы</a></li>
+            <li class="nav-item"><a class="nav-link" href="faq.html">Вопросы</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ещё</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="product.html">Спектакль</a></li>
+                <li><a class="dropdown-item" href="catalog.html">Все постановки</a></li>
+                <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+              </ul>
+            </li>
+            <li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html">Билеты</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero container-fluid">
+      <div class="row g-0 w-100">
+        <div class="col-12 col-lg-7 page-hero__copy page-gutter">
+          <p class="page-hero__lead" data-rise style="--i:0">Выберите постановку, откройте подробную карточку или оформите быструю заявку в модальном окне.</p>
+          <h1 class="page-hero__title" data-rise style="--i:1">Афиша</h1>
+          <a class="theatre-link" href="order.html" data-rise style="--i:2">Оформить заявку</a>
+        </div>
+        <div class="col-12 col-lg-5 page-hero__media"><img src="images/theatre-stage.png" width="1536" height="1024" alt="Освещённая сцена перед спектаклем"></div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--light" aria-labelledby="catalog-title">
+      <div class="container-fluid page-gutter">
+        <div class="alert alert-info catalog-message" role="alert" data-reveal>Выберите спектакль. Афиша собрана из адаптивных карточек Bootstrap.</div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
+          <h2 class="mb-0" id="catalog-title" data-reveal>Ближайшие спектакли</h2>
+          <a class="btn btn-outline-primary" href="order.html" data-reveal>Оставить заявку</a>
+        </div>
+        <div class="row g-4">
+          <article class="col-12 col-md-6 col-lg-4" data-reveal>
+            <div class="card performance-card h-100">
+              <div class="performance-card__media"><img src="images/cherry-orchard.png" class="card-img-top" width="1024" height="1280" alt="Сцена из спектакля Вишнёвый сад"><span class="badge bg-success performance-card__badge">Премьера</span></div>
+              <div class="card-body d-flex flex-column"><p class="performance-card__meta">29 октября · 19:00 · 16+</p><h3 class="card-title">Вишнёвый сад</h3><p class="card-text">История о доме, памяти и переменах в современной сценической форме.</p><p class="fw-bold fs-5 mt-auto">от 1 200 руб.</p><div class="d-flex flex-wrap gap-2"><a class="btn btn-theatre" href="product.html?performance=Вишнёвый%20сад">Подробнее</a><button class="btn btn-outline-primary js-quick-order" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-performance="Вишнёвый сад">Заказать</button></div></div>
+            </div>
+          </article>
+          <article class="col-12 col-md-6 col-lg-4" data-reveal>
+            <div class="card performance-card h-100">
+              <div class="performance-card__media"><img src="images/last-guest.png" class="card-img-top" width="1024" height="1280" alt="Сцена из спектакля Последний гость"><span class="badge bg-warning text-dark performance-card__badge">Малая сцена</span></div>
+              <div class="card-body d-flex flex-column"><p class="performance-card__meta">2 ноября · 20:00 · 18+</p><h3 class="card-title">Последний гость</h3><p class="card-text">Камерная история о семейном ужине, на котором прошлое занимает свободное место.</p><p class="fw-bold fs-5 mt-auto">от 900 руб.</p><div class="d-flex flex-wrap gap-2"><a class="btn btn-theatre" href="product.html?performance=Последний%20гость">Подробнее</a><button class="btn btn-outline-primary js-quick-order" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-performance="Последний гость">Заказать</button></div></div>
+            </div>
+          </article>
+          <article class="col-12 col-md-6 col-lg-4" data-reveal>
+            <div class="card performance-card h-100">
+              <div class="performance-card__media"><img src="images/neighbours.png" class="card-img-top" width="1024" height="1280" alt="Сцена из спектакля Соседи"><span class="badge bg-danger performance-card__badge">Комедия</span></div>
+              <div class="card-body d-flex flex-column"><p class="performance-card__meta">8 ноября · 19:30 · 12+</p><h3 class="card-title">Соседи</h3><p class="card-text">Комедия о тонких стенах, громких разговорах и неожиданной дружбе.</p><p class="fw-bold fs-5 mt-auto">от 1 000 руб.</p><div class="d-flex flex-wrap gap-2"><a class="btn btn-theatre" href="product.html?performance=Соседи">Подробнее</a><button class="btn btn-outline-primary js-quick-order" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-performance="Соседи">Заказать</button></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row g-4 site-footer__top"><div class="col-6 col-lg-3"><strong>Адрес</strong><span>Москва, Театральный переулок, 3</span></div><div class="col-6 col-lg-3"><strong>Касса</strong><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-6 col-lg-3"><strong>Разделы</strong><a href="catalog.html">Афиша</a><a href="reviews.html">Отзывы</a><a href="faq.html">Вопросы</a></div><div class="col-6 col-lg-3"><strong>Почта</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a></div></div><p class="site-footer__wordmark" aria-hidden="true">Третий звонок</p><div class="site-footer__legal"><span>Учебный проект</span><span>2026</span></div></div></footer>
+
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body"><p>Оставьте контактные данные, и администратор свяжется с вами.</p><form id="quickOrderForm" class="needs-validation" novalidate><div class="mb-3"><label for="modal-performance" class="form-label">Спектакль</label><select id="modal-performance" class="form-select" required><option>Вишнёвый сад</option><option>Последний гость</option><option>Соседи</option></select></div><div class="mb-3"><label for="modal-name" class="form-label">Имя</label><input id="modal-name" type="text" class="form-control" required></div><div class="mb-3"><label for="modal-phone" class="form-label">Телефон</label><input id="modal-phone" type="tel" class="form-control" required></div><div class="form-check mb-3"><input id="modal-agree" class="form-check-input" type="checkbox" required><label class="form-check-label" for="modal-agree">Согласен на обработку данных</label></div><div class="alert alert-success d-none" id="quickOrderSuccess" role="status">Заявка подготовлена. Это учебная демонстрация.</div></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button><button type="submit" form="quickOrderForm" class="btn btn-theatre">Отправить</button></div></div></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
