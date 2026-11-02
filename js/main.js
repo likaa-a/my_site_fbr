@@ -123,6 +123,7 @@ if (quickOrderForm) {
 const performanceData = {
   'Вишнёвый сад': {
     image: 'images/cherry-orchard.png',
+    imagePosition: '50% 58%',
     alt: 'Сцена из спектакля Вишнёвый сад',
     badge: 'Премьера',
     description: 'История о доме, памяти и переменах в современной сценической форме.',
@@ -134,6 +135,7 @@ const performanceData = {
   },
   'Последний гость': {
     image: 'images/last-guest.png',
+    imagePosition: '50% 48%',
     alt: 'Сцена из спектакля Последний гость',
     badge: 'Малая сцена',
     description: 'Камерная история о семейном ужине, на котором прошлое занимает свободное место.',
@@ -145,6 +147,7 @@ const performanceData = {
   },
   'Соседи': {
     image: 'images/neighbours.png',
+    imagePosition: '50% 42%',
     alt: 'Сцена из спектакля Соседи',
     badge: 'Комедия',
     description: 'Комедия о тонких стенах, громких разговорах и неожиданной дружбе.',
@@ -182,6 +185,7 @@ if (productTitle) {
   if (image) {
     image.src = data.image;
     image.alt = data.alt;
+    image.style.objectPosition = data.imagePosition;
   }
   const orderLink = document.querySelector('#productOrderLink');
   if (orderLink) orderLink.href = `order.html?performance=${encodeURIComponent(productName)}`;
