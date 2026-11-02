@@ -187,6 +187,26 @@ if (productTitle) {
   if (orderLink) orderLink.href = `order.html?performance=${encodeURIComponent(productName)}`;
 }
 
+document.body.id ||= 'top';
+
+const backToTop = document.createElement('a');
+backToTop.className = 'back-to-top';
+backToTop.href = '#top';
+backToTop.textContent = 'Наверх';
+backToTop.setAttribute('aria-label', 'Вернуться наверх страницы');
+backToTop.setAttribute('aria-hidden', 'true');
+document.body.append(backToTop);
+
+function updateBackToTop() {
+  const isVisible = window.scrollY > 400;
+  backToTop.classList.toggle('is-visible', isVisible);
+  backToTop.setAttribute('aria-hidden', String(!isVisible));
+}
+
+updateBackToTop();
+window.addEventListener('load', updateBackToTop, { once: true });
+window.addEventListener('scroll', updateBackToTop, { passive: true });
+
 document.querySelectorAll('#mainNavbar .nav-link:not(.dropdown-toggle)').forEach((link) => {
   link.addEventListener('click', () => {
     const navbar = document.querySelector('#mainNavbar');
