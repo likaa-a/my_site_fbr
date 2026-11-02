@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="inner-page">
@@ -53,7 +53,7 @@
     </section>
 
     <section class="content-section content-section--light" aria-labelledby="catalog-title">
-      <div class="container-fluid page-gutter">
+      <div class="container page-gutter">
         <div class="alert alert-info catalog-message" role="alert" data-reveal>Выберите спектакль. Афиша собрана из адаптивных карточек Bootstrap.</div>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
           <h2 class="mb-0" id="catalog-title" data-reveal>Ближайшие спектакли</h2>
@@ -86,9 +86,9 @@
   <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row g-4 site-footer__top"><div class="col-6 col-lg-3"><strong>Адрес</strong><span>Москва, Театральный переулок, 3</span></div><div class="col-6 col-lg-3"><strong>Касса</strong><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-6 col-lg-3"><strong>Разделы</strong><a href="catalog.html">Афиша</a><a href="reviews.html">Отзывы</a><a href="faq.html">Вопросы</a></div><div class="col-6 col-lg-3"><strong>Почта</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a></div></div><p class="site-footer__wordmark" aria-hidden="true">Третий звонок</p><div class="site-footer__legal"><span>Учебный проект</span><span>2026</span></div></div></footer>
 
   <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body"><p>Оставьте контактные данные, и администратор свяжется с вами.</p><form id="quickOrderForm" class="needs-validation" novalidate><div class="mb-3"><label for="modal-performance" class="form-label">Спектакль</label><select id="modal-performance" class="form-select" required><option>Вишнёвый сад</option><option>Последний гость</option><option>Соседи</option></select></div><div class="mb-3"><label for="modal-name" class="form-label">Имя</label><input id="modal-name" type="text" class="form-control" required></div><div class="mb-3"><label for="modal-phone" class="form-label">Телефон</label><input id="modal-phone" type="tel" class="form-control" required></div><div class="form-check mb-3"><input id="modal-agree" class="form-check-input" type="checkbox" required><label class="form-check-label" for="modal-agree">Согласен на обработку данных</label></div><div class="alert alert-success d-none" id="quickOrderSuccess" role="status">Заявка подготовлена. Это учебная демонстрация.</div></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button><button type="submit" form="quickOrderForm" class="btn btn-theatre">Отправить</button></div></div></div>
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body"><p>Оставьте контактные данные, и администратор свяжется с вами.</p><form id="quickOrderForm" class="needs-validation" novalidate><div class="mb-3"><label for="modal-performance" class="form-label">Спектакль</label><select id="modal-performance" name="performance" class="form-select" required><option>Вишнёвый сад</option><option>Последний гость</option><option>Соседи</option></select></div><div class="mb-3"><label for="modal-name" class="form-label">Имя</label><input id="modal-name" name="name" type="text" class="form-control" autocomplete="name" required></div><div class="mb-3"><label for="modal-phone" class="form-label">Телефон</label><input id="modal-phone" name="phone" type="tel" class="form-control" autocomplete="tel" required></div><div class="form-check mb-3"><input id="modal-agree" name="agreement" class="form-check-input" type="checkbox" required><label class="form-check-label" for="modal-agree">Согласен на обработку данных</label></div><div class="alert alert-success d-none" id="quickOrderSuccess" role="status">Заявка подготовлена. Это учебная демонстрация.</div></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button><button type="submit" form="quickOrderForm" class="btn btn-theatre">Отправить</button></div></div></div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
