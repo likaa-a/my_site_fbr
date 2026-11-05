@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Карта Театральной площади</title>
+  <desc id="desc">Схема улиц рядом с театром «Третий звонок»</desc>
+  <rect width="1200" height="650" fill="#e8e4df"/>
+  <path d="M0 68h1200v162H0z" fill="#dce7cf"/>
+  <path d="M802 235h398v415H802z" fill="#d8e4cb"/>
+  <g fill="#d4cdc7">
+    <rect x="45" y="95" width="180" height="92" rx="8"/>
+    <rect x="262" y="80" width="172" height="105" rx="8"/>
+    <rect x="470" y="87" width="206" height="98" rx="8"/>
+    <rect x="735" y="82" width="150" height="108" rx="8"/>
+    <rect x="934" y="83" width="214" height="112" rx="8"/>
+    <rect x="52" y="322" width="210" height="120" rx="8"/>
+    <rect x="48" y="495" width="248" height="103" rx="8"/>
+    <rect x="343" y="466" width="178" height="130" rx="8"/>
+    <rect x="562" y="472" width="196" height="124" rx="8"/>
+    <rect x="858" y="330" width="276" height="115" rx="8"/>
+    <rect x="855" y="490" width="288" height="104" rx="8"/>
+  </g>
+  <g fill="none" stroke="#faf9f7" stroke-linecap="round">
+    <path d="M-35 268C210 245 375 245 610 282s385 30 640 2" stroke-width="68"/>
+    <path d="M312 -20c12 150 16 274 8 690" stroke-width="52"/>
+    <path d="M784 -20c-18 190-12 415 12 690" stroke-width="60"/>
+    <path d="M-30 474c260-8 448-34 653-44s400 6 620 19" stroke-width="45"/>
+  </g>
+  <g fill="none" stroke="#c9c1ba" stroke-linecap="round" stroke-dasharray="10 12">
+    <path d="M-35 268C210 245 375 245 610 282s385 30 640 2" stroke-width="2"/>
+    <path d="M312 -20c12 150 16 274 8 690" stroke-width="2"/>
+    <path d="M784 -20c-18 190-12 415 12 690" stroke-width="2"/>
+    <path d="M-30 474c260-8 448-34 653-44s400 6 620 19" stroke-width="2"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#716965">
+    <text x="70" y="250" font-size="22">Охотный Ряд</text>
+    <text x="328" y="55" font-size="19" transform="rotate(88 328 55)">Большая Дмитровка</text>
+    <text x="795" y="68" font-size="19" transform="rotate(92 795 68)">Театральный проезд</text>
+    <text x="540" y="452" font-size="18">Театральная площадь</text>
+    <text x="485" y="140" font-size="19" font-weight="700">Большой театр</text>
+    <text x="892" y="380" font-size="18">Центральный детский магазин</text>
+  </g>
+  <g transform="translate(655 350)">
+    <circle r="33" fill="#f1ebeb" opacity=".9"/>
+    <circle r="21" fill="#660810"/>
+    <circle r="8" fill="#f1ebeb"/>
+    <path d="M-15 24h30L0 49z" fill="#660810"/>
+  </g>
+  <g transform="translate(430 365)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="225" height="54" rx="8" fill="#270707"/>
+    <text x="18" y="34" fill="#f1ebeb" font-size="19" font-weight="700">Театр «Третий звонок»</text>
+  </g>
+  <g transform="translate(430 520)" font-family="Arial, Helvetica, sans-serif">
+    <circle r="18" fill="#660810"/>
+    <text x="-7" y="7" fill="#f1ebeb" font-size="20" font-weight="700">М</text>
+    <text x="28" y="7" fill="#4e4844" font-size="18">Театральная</text>
+  </g>
+  <g transform="translate(1000 44)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="150" height="44" rx="8" fill="#f1ebeb" opacity=".94"/>
+    <circle cx="24" cy="22" r="9" fill="none" stroke="#660810" stroke-width="4"/>
+    <text x="44" y="29" fill="#270707" font-size="18">Пробки</text>
+  </g>
+</svg>

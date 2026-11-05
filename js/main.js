@@ -147,7 +147,7 @@ const performanceData = {
   },
   'Соседи': {
     image: 'images/neighbours.png',
-    imagePosition: '50% 42%',
+    imagePosition: '50% 18%',
     alt: 'Сцена из спектакля Соседи',
     badge: 'Комедия',
     description: 'Комедия о тонких стенах, громких разговорах и неожиданной дружбе.',
@@ -196,7 +196,15 @@ document.body.id ||= 'top';
 const backToTop = document.createElement('a');
 backToTop.className = 'back-to-top';
 backToTop.href = '#top';
-backToTop.textContent = 'Наверх';
+const backToTopIcon = document.createElement('span');
+backToTopIcon.className = 'back-to-top__icon';
+backToTopIcon.setAttribute('aria-hidden', 'true');
+for (let arrowIndex = 0; arrowIndex < 2; arrowIndex += 1) {
+  const chevron = document.createElement('span');
+  chevron.className = 'back-to-top__chevron';
+  backToTopIcon.append(chevron);
+}
+backToTop.append(backToTopIcon);
 backToTop.setAttribute('aria-label', 'Вернуться наверх страницы');
 document.body.append(backToTop);
 
@@ -208,3 +216,28 @@ document.querySelectorAll('#mainNavbar .nav-link:not(.dropdown-toggle)').forEach
     }
   });
 });
+
+const mapToggle = document.querySelector('.contact-map__toggle');
+if (mapToggle) {
+  const mapVisual = mapToggle.closest('.contact-map__visual');
+  const mapFrame = mapVisual?.querySelector('.contact-map__iframe');
+
+  mapToggle.addEventListener('click', () => {
+    if (!mapFrame || !mapVisual) return;
+
+    const isInteractive = mapToggle.getAttribute('aria-pressed') === 'true';
+    if (isInteractive) {
+      mapFrame.hidden = true;
+      mapVisual.classList.remove('is-interactive');
+      mapToggle.setAttribute('aria-pressed', 'false');
+      mapToggle.textContent = 'Интерактивная карта';
+      return;
+    }
+
+    if (!mapFrame.hasAttribute('src')) mapFrame.src = mapFrame.dataset.src;
+    mapFrame.hidden = false;
+    mapVisual.classList.add('is-interactive');
+    mapToggle.setAttribute('aria-pressed', 'true');
+    mapToggle.textContent = 'Показать схему';
+  });
+}

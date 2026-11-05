@@ -6,11 +6,8 @@
   <meta name="description" content="Афиша театра Третий звонок: спектакли, даты, карточки постановок и быстрое бронирование.">
   <title>Афиша: театр «Третий звонок»</title>
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css?v=3">
+  <link rel="stylesheet" href="css/custom.css?v=28">
 </head>
 <body class="inner-page">
   <a class="skip-link" href="#main-content">Перейти к содержанию</a>
@@ -23,8 +20,9 @@
           <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="catalog.html">Афиша</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">Наша история</a></li>
-            <li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html">Билеты</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">О театре</a></li>
+            <li class="nav-item"><a class="nav-link" href="rules.html">Правила</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li><li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html">Билеты</a></li>
           </ul>
         </div>
       </div>
@@ -45,7 +43,6 @@
 
     <section class="content-section content-section--light" aria-labelledby="catalog-title">
       <div class="container page-gutter">
-        <div class="alert alert-info catalog-message" role="alert" data-reveal>Выберите спектакль. Афиша собрана из адаптивных карточек Bootstrap.</div>
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
           <h2 class="mb-0" id="catalog-title" data-reveal>Ближайшие спектакли</h2>
           <a class="btn btn-outline-primary" href="order.html" data-reveal>Оставить заявку</a>
@@ -54,7 +51,7 @@
           <article class="col-12 col-md-6 col-lg-4" data-reveal>
             <div class="card performance-card h-100">
               <div class="performance-card__media"><img src="images/cherry-orchard.png" class="card-img-top media-focus--cherry" width="1024" height="1280" loading="lazy" alt="Сцена из спектакля Вишнёвый сад"><span class="badge performance-card__badge">Премьера</span></div>
-              <div class="card-body d-flex flex-column"><p class="performance-card__meta">29 октября · 19:00 · 16+</p><h3 class="card-title">Вишнёвый сад</h3><p class="card-text">История о доме, памяти и переменах в современной сценической форме.</p><p class="fw-bold fs-5 mt-auto">от 1 200 руб.</p><div class="d-flex flex-wrap gap-2"><a class="btn btn-theatre" href="product.html?performance=Вишнёвый%20сад">Подробнее</a><button class="btn btn-outline-primary js-quick-order" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-performance="Вишнёвый сад">Заказать</button></div></div>
+              <div class="card-body d-flex flex-column"><p class="performance-card__meta">29 октября · 19:00 · 16+</p><h3 class="card-title">Вишнёвый сад</h3><p class="card-text">История о доме, памяти и переменах в бережной сценической постановке.</p><p class="fw-bold fs-5 mt-auto">от 1 200 руб.</p><div class="d-flex flex-wrap gap-2"><a class="btn btn-theatre" href="product.html?performance=Вишнёвый%20сад">Подробнее</a><button class="btn btn-outline-primary js-quick-order" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-performance="Вишнёвый сад">Заказать</button></div></div>
             </div>
           </article>
           <article class="col-12 col-md-6 col-lg-4" data-reveal>
@@ -74,12 +71,12 @@
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row g-4 site-footer__top"><div class="col-6 col-lg-3"><strong>Адрес</strong><span>Москва, Театральный переулок, 3</span></div><div class="col-6 col-lg-3"><strong>Касса</strong><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-6 col-lg-3"><strong>Разделы</strong><a href="index.html">Главная</a><a href="catalog.html">Афиша</a><a href="about.html">Наша история</a><a href="order.html">Билеты</a></div><div class="col-6 col-lg-3"><strong>Почта</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a></div></div><p class="site-footer__wordmark" aria-hidden="true">Третий звонок</p><div class="site-footer__legal"><span>Учебный проект</span><span>2026</span></div></div></footer>
+  <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row gy-5 gx-lg-5 site-footer__top"><div class="col-12 col-md-6 col-lg-4 site-footer__intro"><a class="site-footer__brand" href="index.html">Театр «Третий звонок»</a><p>Театр в центре Москвы с камерной атмосферой и вниманием к каждой постановке.</p></div><nav class="col-6 col-md-3 col-lg-2 site-footer__nav" aria-label="Навигация в подвале"><a href="index.html">Главная</a><a href="catalog.html">Афиша</a><a href="rules.html">Правила</a></nav><div class="col-12 col-md-6 col-lg-3"><strong>Связаться</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-12 col-md-6 col-lg-3 site-footer__visit"><strong>Третий звонок</strong><span>Москва, Театральный переулок, 3</span><span>Бронирование билетов ежедневно</span><a class="btn btn-footer" href="order.html">Забронировать билет</a></div></div><div class="site-footer__legal"><span>© 2026 Театр «Третий звонок». Все права защищены.</span></div></div></footer>
 
   <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body"><p>Оставьте контактные данные, и администратор свяжется с вами.</p><form id="quickOrderForm" class="needs-validation" novalidate><div class="mb-3"><label for="modal-performance" class="form-label">Спектакль</label><select id="modal-performance" name="performance" class="form-select" required><option>Вишнёвый сад</option><option>Последний гость</option><option>Соседи</option></select></div><div class="mb-3"><label for="modal-name" class="form-label">Имя</label><input id="modal-name" name="name" type="text" class="form-control" autocomplete="name" required></div><div class="mb-3"><label for="modal-phone" class="form-label">Телефон</label><input id="modal-phone" name="phone" type="tel" class="form-control" autocomplete="tel" required></div><div class="form-check mb-3"><input id="modal-agree" name="agreement" class="form-check-input" type="checkbox" required><label class="form-check-label" for="modal-agree">Согласен на обработку данных</label></div><div class="alert alert-success d-none" id="quickOrderSuccess" role="status">Заявка подготовлена. Это учебная демонстрация.</div></form></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button><button type="submit" form="quickOrderForm" class="btn btn-theatre">Отправить</button></div></div></div>
   </div>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

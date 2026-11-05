@@ -3,16 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Третий звонок. Современный театр: афиша, спектакли, актёры и бронирование билетов.">
+  <meta name="description" content="Третий звонок. Театральная афиша, спектакли, актёры и бронирование билетов.">
   <title>Театр «Третий звонок»</title>
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css?v=3">
+  <link rel="stylesheet" href="css/custom.css?v=28">
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main-content">Перейти к содержанию</a>
 
   <header class="site-header">
@@ -26,8 +23,9 @@
           <ul class="navbar-nav ms-auto align-items-lg-center">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Главная</a></li>
             <li class="nav-item"><a class="nav-link" href="catalog.html">Афиша</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">Наша история</a></li>
-            <li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html">Билеты</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">О театре</a></li>
+            <li class="nav-item"><a class="nav-link" href="rules.html">Правила</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li><li class="nav-item ms-lg-3"><a class="btn btn-theatre btn-sm" href="order.html">Билеты</a></li>
           </ul>
         </div>
       </div>
@@ -38,7 +36,7 @@
     <section class="hero container-fluid" id="home" aria-labelledby="hero-title">
       <div class="row g-0 min-vh-100">
         <div class="col-12 col-lg-7 hero__copy d-flex flex-column justify-content-between page-gutter">
-          <p class="hero__intro" data-rise style="--i: 0">Современный театр в центре Москвы. Драма, комедия и разговор со зрителем после третьего звонка.</p>
+          <p class="hero__intro" data-rise style="--i: 0">Театр в центре Москвы. Драма, комедия и истории, к которым хочется возвращаться после третьего звонка.</p>
           <h1 class="hero__title" id="hero-title" aria-label="Третий звонок">
             <span class="line"><span data-line style="--i: 1">Третий</span></span>
             <span class="line hero__title-second"><span data-line style="--i: 2">звонок</span></span>
@@ -100,7 +98,7 @@
                   <div class="card-body d-flex flex-column">
                     <p class="performance-card__meta">29 октября · 19:00 · 16+</p>
                     <h3 class="card-title">Вишнёвый сад</h3>
-                    <p class="card-text">Чеховская история о доме, памяти и переменах в современной сценической форме.</p>
+                    <p class="card-text">Чеховская история о доме, памяти и переменах в бережной сценической постановке.</p>
                     <div class="mt-auto d-flex flex-wrap gap-2">
                       <button class="btn btn-theatre js-show-details" type="button" data-bs-toggle="modal" data-bs-target="#performanceModal" data-title="Вишнёвый сад" data-text="Драма по пьесе А. П. Чехова. Продолжительность: 2 часа 20 минут с антрактом. Большая сцена." data-date="29 октября, 19:00">Подробнее</button>
                       <a class="btn btn-link theatre-link" href="order.html?performance=Вишнёвый%20сад">Билеты</a>
@@ -138,7 +136,7 @@
                     <h3 class="card-title">Соседи</h3>
                     <p class="card-text">Остроумная комедия о тонких стенах, громких разговорах и неожиданной дружбе.</p>
                     <div class="mt-auto d-flex flex-wrap gap-2">
-                      <button class="btn btn-theatre js-show-details" type="button" data-bs-toggle="modal" data-bs-target="#performanceModal" data-title="Соседи" data-text="Современная комедия в двух действиях. Продолжительность: 1 час 50 минут с антрактом. Большая сцена." data-date="8 ноября, 19:30">Подробнее</button>
+                      <button class="btn btn-theatre js-show-details" type="button" data-bs-toggle="modal" data-bs-target="#performanceModal" data-title="Соседи" data-text="Комедия в двух действиях. Продолжительность: 1 час 50 минут с антрактом. Большая сцена." data-date="8 ноября, 19:30">Подробнее</button>
                       <a class="btn btn-link theatre-link" href="order.html?performance=Соседи">Билеты</a>
                     </div>
                   </div>
@@ -268,14 +266,25 @@
 
   <footer class="site-footer">
     <div class="container-fluid page-gutter">
-      <div class="row g-4 site-footer__top">
-        <div class="col-6 col-lg-3"><strong>Адрес</strong><span>Москва, Театральный переулок, 3</span></div>
-        <div class="col-6 col-lg-3"><strong>Касса</strong><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div>
-        <div class="col-6 col-lg-3"><strong>Разделы</strong><a href="index.html">Главная</a><a href="catalog.html">Афиша</a><a href="about.html">Наша история</a><a href="order.html">Билеты</a></div>
-        <div class="col-6 col-lg-3"><strong>Почта</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a></div>
+      <div class="row gy-5 gx-lg-5 site-footer__top">
+        <div class="col-12 col-md-6 col-lg-4 site-footer__intro">
+          <a class="site-footer__brand" href="index.html">Театр «Третий звонок»</a>
+          <p>Театр в центре Москвы с камерной атмосферой и вниманием к каждой постановке.</p>
+        </div>
+        <nav class="col-6 col-md-3 col-lg-2 site-footer__nav" aria-label="Навигация в подвале">
+          <a href="index.html">Главная</a><a href="catalog.html">Афиша</a><a href="rules.html">Правила</a>
+        </nav>
+        <div class="col-12 col-md-6 col-lg-3">
+          <strong>Связаться</strong>
+          <a href="mailto:hello@third-bell.example">hello@third-bell.example</a><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 site-footer__visit">
+          <strong>Третий звонок</strong>
+          <span>Москва, Театральный переулок, 3</span><span>Бронирование билетов ежедневно</span>
+          <a class="btn btn-footer" href="order.html">Забронировать билет</a>
+        </div>
       </div>
-      <p class="site-footer__wordmark" aria-hidden="true">Третий звонок</p>
-      <div class="site-footer__legal"><span>Учебный проект</span><span>2026</span></div>
+      <div class="site-footer__legal"><span>© 2026 Театр «Третий звонок». Все права защищены.</span></div>
     </div>
   </footer>
 
@@ -299,6 +308,6 @@
   </div>
 
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>
