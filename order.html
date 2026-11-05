@@ -7,7 +7,7 @@
   <title>Заявка: театр «Третий звонок»</title>
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css?v=28">
+  <link rel="stylesheet" href="css/custom.css?v=33">
 </head>
 <body class="inner-page order-page">
   <a class="skip-link" href="#main-content">Перейти к содержанию</a>
@@ -18,16 +18,21 @@
       <div class="row g-5 align-items-start">
         <div class="col-12 col-lg-5 order-intro">
           <h1 class="order-intro__title" data-rise style="--i:0">Билеты</h1>
-          <p class="order-intro__lead" data-rise style="--i:1">Выберите спектакль и оставьте контакты. Администратор поможет подобрать места и подтвердит бронирование.</p>
+          <p class="order-intro__lead" data-rise style="--i:1">Выберите спектакль, дату и места на интерактивной схеме зала. Выбранные кресла сразу появятся в заявке.</p>
           <figure class="order-intro__main" data-reveal><img src="images/order-auditorium.png" width="1024" height="1024" alt="Зрительный зал с бордовыми креслами и центральным проходом перед началом спектакля"></figure>
         </div>
         <div class="col-12 col-lg-7">
           <div class="card order-card" data-reveal>
             <div class="card-header">
               <h2 class="h2 mb-0">Форма заявки</h2>
-              <p>Оставьте контакты — администратор уточнит места и подтвердит бронирование.</p>
+              <p>Заполните контакты и выберите до четырёх свободных кресел. Администратор подтвердит бронирование.</p>
             </div>
             <div class="card-body">
+              <div class="order-card__support" data-reveal>
+                <span>Нужна помощь кассы?</span>
+                <a href="tel:+74950000003">+7 495 000-00-03</a>
+                <a href="mailto:hello@third-bell.example">Написать на почту</a>
+              </div>
               <p class="order-card__note" data-reveal>Поля со звёздочкой обязательны. В учебной версии данные не отправляются.</p>
               <form id="orderForm" class="needs-validation order-form" novalidate>
                 <div class="row g-3 g-lg-4">
@@ -35,9 +40,28 @@
                   <div class="col-12 col-md-6" data-reveal><label for="order-email" class="form-label">E-mail *</label><input id="order-email" name="email" type="email" class="form-control" autocomplete="email" required><div class="invalid-feedback">Введите корректный e-mail.</div></div>
                   <div class="col-12 col-md-6" data-reveal><label for="order-phone" class="form-label">Телефон</label><div class="input-group"><span class="input-group-text">+7</span><input id="order-phone" name="phone" type="tel" class="form-control" autocomplete="tel" inputmode="tel" placeholder="900 000-00-00"></div></div>
                   <div class="col-12 col-md-6" data-reveal><label for="order-product" class="form-label">Спектакль *</label><select id="order-product" name="performance" class="form-select" required><option value="" selected disabled>Выберите спектакль</option><option value="Вишнёвый сад">Вишнёвый сад</option><option value="Последний гость">Последний гость</option><option value="Соседи">Соседи</option></select><div class="invalid-feedback">Выберите спектакль.</div></div>
-                  <div class="col-12 col-md-6" data-reveal><label for="order-tickets" class="form-label">Количество билетов</label><select id="order-tickets" name="tickets" class="form-select"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
+                  <div class="col-12 col-md-6" data-reveal><label for="order-tickets" class="form-label">Выбрано билетов</label><input id="order-tickets" name="tickets" type="text" class="form-control" value="0" readonly></div>
                   <div class="col-12 col-md-6" data-reveal><label for="order-date" class="form-label">Дата посещения</label><input id="order-date" name="date" type="date" class="form-control"></div>
-                  <div class="col-12" data-reveal><label for="order-comment" class="form-label">Комментарий</label><textarea id="order-comment" name="comment" class="form-control" rows="3" placeholder="Пожелания по ряду и местам"></textarea></div>
+                  <div class="col-12" data-reveal>
+                    <fieldset class="seat-picker" aria-describedby="seat-help seat-error">
+                      <legend>Схема зала *</legend>
+                      <p id="seat-help">Нажмите на свободные кресла. Можно выбрать от одного до четырёх мест.</p>
+                      <div class="seat-picker__stage" aria-hidden="true">Сцена</div>
+                      <div class="seat-map" id="seatMap" tabindex="-1" aria-label="Интерактивная схема зрительного зала"></div>
+                      <div class="seat-picker__legend" aria-label="Обозначения мест">
+                        <span><i class="seat-sample seat-sample--available" aria-hidden="true"></i>Свободно</span>
+                        <span><i class="seat-sample seat-sample--selected" aria-hidden="true"></i>Выбрано</span>
+                        <span><i class="seat-sample seat-sample--occupied" aria-hidden="true"></i>Занято</span>
+                      </div>
+                      <div class="seat-picker__summary" aria-live="polite">
+                        <span id="seatSelectionText">Места не выбраны</span>
+                        <strong id="seatTotal">0 руб.</strong>
+                      </div>
+                      <p class="seat-picker__error" id="seat-error" role="alert" hidden>Выберите хотя бы одно свободное место.</p>
+                      <input id="order-seats" name="seats" type="hidden">
+                    </fieldset>
+                  </div>
+                  <div class="col-12" data-reveal><label for="order-comment" class="form-label">Комментарий</label><textarea id="order-comment" name="comment" class="form-control" rows="3" placeholder="Дополнительные пожелания"></textarea></div>
                   <div class="col-12" data-reveal><div class="form-check order-form__agreement"><input id="order-agree" name="agreement" class="form-check-input" type="checkbox" required><label class="form-check-label" for="order-agree">Я согласен на обработку данных *</label><div class="invalid-feedback">Необходимо согласие.</div></div></div>
                   <div class="col-12 order-form__actions" data-reveal><button class="btn btn-theatre" type="submit">Отправить заявку</button><button class="btn order-form__reset" type="reset">Очистить форму</button></div>
                   <div class="col-12"><div class="alert alert-success d-none mb-0" id="orderSuccess" role="status" tabindex="-1">Форма заполнена корректно. Отправка на сервер в учебной версии отключена.</div></div>
@@ -52,6 +76,6 @@
 
   <footer class="site-footer"><div class="container-fluid page-gutter"><div class="row gy-5 gx-lg-5 site-footer__top"><div class="col-12 col-md-6 col-lg-4 site-footer__intro"><a class="site-footer__brand" href="index.html">Театр «Третий звонок»</a><p>Театр в центре Москвы с камерной атмосферой и вниманием к каждой постановке.</p></div><nav class="col-6 col-md-3 col-lg-2 site-footer__nav" aria-label="Навигация в подвале"><a href="index.html">Главная</a><a href="catalog.html">Афиша</a><a href="rules.html">Правила</a></nav><div class="col-12 col-md-6 col-lg-3"><strong>Связаться</strong><a href="mailto:hello@third-bell.example">hello@third-bell.example</a><a href="tel:+74950000003">+7 495 000-00-03</a><span>Ежедневно, 12:00–20:00</span></div><div class="col-12 col-md-6 col-lg-3 site-footer__visit"><strong>Третий звонок</strong><span>Москва, Театральный переулок, 3</span><span>Бронирование билетов ежедневно</span><a class="btn btn-footer" href="order.html">Забронировать билет</a></div></div><div class="site-footer__legal"><span>© 2026 Театр «Третий звонок». Все права защищены.</span></div></div></footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>

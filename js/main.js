@@ -55,6 +55,98 @@ if (orderProduct && requestedPerformance) {
   if (requestedOption) orderProduct.value = requestedOption.value;
 }
 
+const seatMap = document.querySelector('#seatMap');
+const orderSeatsInput = document.querySelector('#order-seats');
+const orderTicketsInput = document.querySelector('#order-tickets');
+const seatSelectionText = document.querySelector('#seatSelectionText');
+const seatTotal = document.querySelector('#seatTotal');
+const seatError = document.querySelector('#seat-error');
+const selectedSeats = new Map();
+const occupiedSeats = new Set(['1-3', '1-7', '2-5', '3-2', '3-8', '4-4', '5-6', '6-1']);
+const seatPriceByRow = [1500, 1500, 1200, 1200, 900, 900];
+const moneyFormatter = new Intl.NumberFormat('ru-RU');
+
+function seatSummary() {
+  return [...selectedSeats.values()]
+    .sort((a, b) => a.row - b.row || a.seat - b.seat)
+    .map((item) => `${item.row} ряд, место ${item.seat}`)
+    .join('; ');
+}
+
+function updateSeatSelection() {
+  const summary = seatSummary();
+  const total = [...selectedSeats.values()].reduce((sum, item) => sum + item.price, 0);
+
+  if (orderSeatsInput) orderSeatsInput.value = summary;
+  if (orderTicketsInput) orderTicketsInput.value = String(selectedSeats.size);
+  if (seatSelectionText) seatSelectionText.textContent = summary || 'Места не выбраны';
+  if (seatTotal) seatTotal.textContent = `${moneyFormatter.format(total)} руб.`;
+  if (selectedSeats.size > 0 && seatError) seatError.hidden = true;
+}
+
+function clearSeatSelection() {
+  selectedSeats.clear();
+  seatMap?.querySelectorAll('.seat-map__seat.is-selected').forEach((seat) => {
+    seat.classList.remove('is-selected');
+    seat.setAttribute('aria-pressed', 'false');
+  });
+  if (seatError) seatError.hidden = true;
+  updateSeatSelection();
+}
+
+if (seatMap) {
+  for (let row = 1; row <= 6; row += 1) {
+    const rowElement = document.createElement('div');
+    rowElement.className = 'seat-map__row';
+
+    const rowLabel = document.createElement('span');
+    rowLabel.className = 'seat-map__row-label';
+    rowLabel.textContent = `${row} ряд`;
+    rowElement.append(rowLabel);
+
+    for (let seat = 1; seat <= 8; seat += 1) {
+      const key = `${row}-${seat}`;
+      const price = seatPriceByRow[row - 1];
+      const button = document.createElement('button');
+      button.className = 'seat-map__seat';
+      button.type = 'button';
+      button.textContent = String(seat);
+      button.dataset.key = key;
+      button.setAttribute('aria-label', `${row} ряд, место ${seat}, ${moneyFormatter.format(price)} рублей`);
+      button.setAttribute('aria-pressed', 'false');
+
+      if (occupiedSeats.has(key)) {
+        button.disabled = true;
+        button.setAttribute('aria-label', `${row} ряд, место ${seat}, занято`);
+      } else {
+        button.addEventListener('click', () => {
+          if (selectedSeats.has(key)) {
+            selectedSeats.delete(key);
+            button.classList.remove('is-selected');
+            button.setAttribute('aria-pressed', 'false');
+          } else if (selectedSeats.size < 4) {
+            selectedSeats.set(key, { row, seat, price });
+            button.classList.add('is-selected');
+            button.setAttribute('aria-pressed', 'true');
+          } else if (seatError) {
+            seatError.textContent = 'Можно выбрать не больше четырёх мест.';
+            seatError.hidden = false;
+            return;
+          }
+          updateSeatSelection();
+        });
+      }
+
+      rowElement.append(button);
+    }
+
+    seatMap.append(rowElement);
+  }
+  updateSeatSelection();
+}
+
+orderProduct?.addEventListener('change', clearSeatSelection);
+
 const bookingForm = document.querySelector('#bookingForm');
 const bookingSuccess = document.querySelector('#bookingSuccess');
 
@@ -82,27 +174,46 @@ const orderSuccess = document.querySelector('#orderSuccess');
 if (orderForm) {
   orderForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    if (!orderForm.checkValidity()) {
+    const seatsAreValid = !seatMap || selectedSeats.size > 0;
+    if (!seatsAreValid && seatError) {
+      seatError.textContent = 'Выберите хотя бы одно свободное место.';
+      seatError.hidden = false;
+    }
+
+    if (!orderForm.checkValidity() || !seatsAreValid) {
       event.stopPropagation();
       orderForm.classList.add('was-validated');
+      if (!seatsAreValid) seatMap?.focus();
       return;
     }
     orderForm.classList.add('was-validated');
+    if (orderSuccess) {
+      orderSuccess.textContent = `Заявка подготовлена: ${seatSummary()}. Итоговая стоимость — ${seatTotal?.textContent || '0 руб.'} Отправка на сервер в учебной версии отключена.`;
+    }
     orderSuccess?.classList.remove('d-none');
     orderSuccess?.focus({ preventScroll: true });
   });
 
   orderForm.addEventListener('reset', () => {
-    orderForm.classList.remove('was-validated');
-    orderSuccess?.classList.add('d-none');
+    window.setTimeout(() => {
+      clearSeatSelection();
+      orderForm.classList.remove('was-validated');
+      orderSuccess?.classList.add('d-none');
+    }, 0);
   });
 }
 
 const modalPerformance = document.querySelector('#modal-performance');
+const modalSeatLink = document.querySelector('#modalSeatLink');
 document.querySelectorAll('.js-quick-order').forEach((button) => {
   button.addEventListener('click', () => {
     if (modalPerformance) modalPerformance.value = button.dataset.performance;
+    if (modalSeatLink) modalSeatLink.href = `order.html?performance=${encodeURIComponent(button.dataset.performance)}`;
   });
+});
+
+modalPerformance?.addEventListener('change', () => {
+  if (modalSeatLink) modalSeatLink.href = `order.html?performance=${encodeURIComponent(modalPerformance.value)}`;
 });
 
 const quickOrderForm = document.querySelector('#quickOrderForm');
@@ -119,6 +230,51 @@ if (quickOrderForm) {
     quickOrderSuccess?.classList.remove('d-none');
   });
 }
+
+const genreFilter = document.querySelector('#genreFilter');
+const ageFilter = document.querySelector('#ageFilter');
+const catalogFilterReset = document.querySelector('#catalogFilterReset');
+const catalogCards = [...document.querySelectorAll('#catalogGrid > article')];
+const catalogResultCount = document.querySelector('#catalogResultCount');
+const catalogEmpty = document.querySelector('#catalogEmpty');
+
+function performanceWord(count) {
+  const lastTwo = count % 100;
+  const last = count % 10;
+  if (lastTwo >= 11 && lastTwo <= 14) return 'спектаклей';
+  if (last === 1) return 'спектакль';
+  if (last >= 2 && last <= 4) return 'спектакля';
+  return 'спектаклей';
+}
+
+function applyCatalogFilters() {
+  if (!genreFilter || !ageFilter || catalogCards.length === 0) return;
+
+  const selectedGenre = genreFilter.value;
+  const selectedAge = ageFilter.value;
+  let visibleCount = 0;
+
+  catalogCards.forEach((card) => {
+    const matchesGenre = selectedGenre === 'all' || card.dataset.genre === selectedGenre;
+    const matchesAge = selectedAge === 'all' || card.dataset.age === selectedAge;
+    const isVisible = matchesGenre && matchesAge;
+    card.hidden = !isVisible;
+    if (isVisible) visibleCount += 1;
+  });
+
+  if (catalogResultCount) {
+    catalogResultCount.textContent = `Найдено: ${visibleCount} ${performanceWord(visibleCount)}`;
+  }
+  if (catalogEmpty) catalogEmpty.hidden = visibleCount !== 0;
+}
+
+genreFilter?.addEventListener('change', applyCatalogFilters);
+ageFilter?.addEventListener('change', applyCatalogFilters);
+catalogFilterReset?.addEventListener('click', () => {
+  if (genreFilter) genreFilter.value = 'all';
+  if (ageFilter) ageFilter.value = 'all';
+  applyCatalogFilters();
+});
 
 const performanceData = {
   'Вишнёвый сад': {
